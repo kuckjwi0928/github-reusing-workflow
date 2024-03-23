@@ -1,0 +1,17 @@
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+      project:
+        required: true
+        type: string
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo "Environment: ${{ inputs.environment }}"
+        echo "Project: ${{ inputs.project }}"
+

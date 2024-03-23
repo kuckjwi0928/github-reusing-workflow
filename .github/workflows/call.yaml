@@ -1,0 +1,17 @@
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        required: true
+        type: string
+        default: local
+      project:
+        required: true
+        type: string
+        default: my-project
+jobs:
+  call-workflow:
+    uses: kuckjwi0928/github-reusing-workflow/.github/workflows/workflow.yaml@main
+    with:
+      environment: ${{ github.event.inputs.environment }}
+      project: ${{ github.event.inputs.project }}

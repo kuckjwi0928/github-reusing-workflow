@@ -1,3 +1,4 @@
+name: Echo
 on:
   workflow_call:
     inputs:

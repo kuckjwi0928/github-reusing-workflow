@@ -27,4 +27,9 @@ jobs:
         distribution: ${{ inputs.vendor }}
         java-version: ${{ inputs.jdkVersion }}
     - name: Run gradle tests
-      run: ./gradlew test
+      run: |
+        echo "Environment: ${{ inputs.environment }}"
+        echo "Project: ${{ inputs.project }}"
+        echo "Vendor: ${{ inputs.vendor }}"
+        echo "JDK Version: ${{ inputs.jdkVersion }}"
+        ./gradlew test

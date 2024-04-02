@@ -1,4 +1,4 @@
-name: Java application Test
+name: Gradle java application test
 on:
   workflow_call:
     inputs:

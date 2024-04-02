@@ -16,9 +16,6 @@ on:
         required: true
         type: string
         default: '17'
-      image:
-        required: true
-        type: string
 jobs:
   echo:
     runs-on: ubuntu-latest

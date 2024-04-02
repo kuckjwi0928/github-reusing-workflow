@@ -1,4 +1,4 @@
-name: Echo
+name: Java application Test
 on:
   workflow_call:
     inputs:
@@ -8,10 +8,26 @@ on:
       project:
         required: true
         type: string
+      vendor:
+        required: true
+        type: string
+        default: corretto
+      jdkVersion:
+        required: true
+        type: string
+        default: '17'
+      image:
+        required: true
+        type: string
 jobs:
   echo:
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        echo "Environment: ${{ inputs.environment }}"
-        echo "Project: ${{ inputs.project }}"
+    - uses: actions/checkout@v4
+    - name: Set up JDK ${{ inputs.jdkVersion }}
+      uses: actions/setup-java@v4
+      with:
+        distribution: ${{ inputs.vendor }}
+        java-version: ${{ inputs.jdkVersion }}
+    - name: Run gradle tests
+      run: ./gradlew test

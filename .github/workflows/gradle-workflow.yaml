@@ -15,7 +15,7 @@ on:
         type: string
         default: '17'
 jobs:
-  echo:
+  test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4

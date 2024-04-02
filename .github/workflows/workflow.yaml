@@ -9,11 +9,9 @@ on:
         required: true
         type: string
       vendor:
-        required: true
         type: string
         default: corretto
       jdkVersion:
-        required: true
         type: string
         default: '17'
 jobs:
